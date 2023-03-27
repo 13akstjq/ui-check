@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+    <head>
+        <title>UI-Check</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="./ui-check.js"></script>
+    </head>
+    <body>
+        <script>
+            var ui = new UiCheck({
+                position: 'top right'
+            });
+
+            ui.add({
+                name: '기본',
+                handler: function() {
+                    console.log('기본타입');
+                }
+            })
+            .add({
+                name: '토글 형태',
+                type: 'toggle',
+                handler: function(param) {
+                    console.log('상태 ', param);
+                }
+            })
+            .add({
+                name: '여러단계',
+                step: 3,
+                handler: function(current, stepCount) {
+                    console.log('현재', current);
+                    console.log('상태개수', stepCount);
+                }
+            })
+            .add({
+                name: '한번만클릭가능',
+                type: 'once',
+                handler: function() {
+                    console.log('once');
+                }
+            })
+            .group([
+                {
+                    name: '그룹1-1',
+                    handler: function() {
+                        console.log('g1-1');
+                    }
+                },
+                {
+                    name: '그룹1-2',
+                    handler: function() {
+                        console.log('g1-2');
+                    }
+                },
+            ])
+            .group([
+                {
+                    name: '그룹2-1',
+                    handler: function() {
+                        console.log('g2-1');
+                    }
+                },
+                {
+                    name: '그룹2-2',
+                    handler: function() {
+                        console.log('g2-2');
+                    }
+                }
+            ], 1);
+        </script>
+    </body>
+</html>
