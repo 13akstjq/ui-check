@@ -1,0 +1,163 @@
+._ui_check_area {
+    position: fixed;
+    z-index: 10000;
+    width: 120px;
+    margin: 15px;
+    padding: 0 6px;
+    background: #fff;
+    border: 1px solid #3bca04;
+    border-radius: 5px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif, "NanumGothic", "나눔고딕", "Malgun Gothic", "맑은고딕", Dotum, "돋움", sans-serif;
+    cursor: move;
+    user-select: none;
+
+    * {
+        font-family: inherit;
+    }
+
+    &.bottom {
+        bottom: 0;
+    }
+
+    &.right {
+        right: 0;
+    }
+
+    &.left {
+        left: 0;
+    }
+
+    &.top {
+        top: 0;
+    }
+
+    &.off {
+        display: none;
+    }
+
+    &.hide {
+        width: 22px;
+        height: 33px;
+        overflow: hidden;
+
+        ._ui_button_area,
+        ._ui_heading {
+            display: none;
+        }
+
+        ._ui_onoff_icon {
+            stroke-dashoffset: -222px;
+            stroke-dasharray: 222px;
+        }
+    }
+    
+    div, button, h6 {
+        padding: 0;
+        margin: 0;
+        background: transparent;
+    }
+
+    button {
+        border: 0;
+    }
+
+    ._ui_blind {
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        border: 0;
+        clip: rect(0, 0, 0, 0);
+    }
+
+    ._ui_heading {
+        padding: 7px 0 5px;
+        font-size: 12px;
+        color: #333;
+        font-weight: 700;
+        letter-spacing: -0.1px;
+        text-align: left;
+    }
+
+    ._ui_button_area {
+        padding: 5px 0;
+        border-top: 1px solid #b4de9f;
+    }
+
+    ._ui_button_group {
+        padding: 4px;
+        margin: 4px 0;
+        padding: 4px;
+        border: 1px solid #b4de9f;
+        border-radius: 3px;
+    }
+
+    ._ui_button {
+        display: block;
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+        background: #b4de9f;
+        border-radius: 2px;
+        cursor: pointer;
+
+        &:hover {
+            &:after {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                border: 1px solid #3bca04;
+                border-radius: 2px;
+                content: '';
+            }
+        }
+
+        &[disabled] {
+            cursor: default;
+            background: #b6b6b6;
+
+            &:hover:after {
+                display: none;
+            }
+        }
+
+
+        &.-step {
+            position: relative;
+        }
+
+        + ._ui_button {
+            margin-top: 4px;
+        }
+    }
+
+    ._ui_button_name {
+        display: block;
+        padding: 5px;
+        font-size: 11px;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    ._ui_close_button {
+        position: absolute;
+        top: 0;
+        right: 2px;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+
+        ._ui_onoff_icon {
+            width: 23px;
+            height: 23px;
+            stroke: #333;
+            stroke-width: 10px;
+            fill: transparent;
+        }
+    }
+}
